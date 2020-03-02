@@ -21,6 +21,10 @@ namespace XMLSerializer.Test
             // assert
             trueResult.Should().BeTrue();
             falseResult.Should().BeFalse();
+
+            custTrueBool.Equals(true).Should().BeTrue();
+            custTrueBool.Equals(false).Should().BeFalse();
+            custTrueBool.Equals(null).Should().BeFalse();
         }
 
         [Fact]
@@ -44,6 +48,12 @@ namespace XMLSerializer.Test
             trueResult.HasValue.Should().BeTrue();
             falseResult.HasValue.Should().BeTrue();
             nullResult.HasValue.Should().BeFalse();
+
+            custTrueBool.Equals(true).Should().BeTrue();
+            custFalseBool.Equals(true).Should().BeFalse();
+            custFalseBool.Equals(null).Should().BeFalse();
+            custNullBool.Equals(true).Should().BeFalse();
+            custNullBool.Equals(null).Should().BeTrue();
         }
         #endregion
     }

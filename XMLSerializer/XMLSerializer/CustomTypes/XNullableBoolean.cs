@@ -27,7 +27,12 @@ namespace XMLSerializer.CustomTypes
         {
             if (!Value.HasValue)
             {
-                return false;
+                return obj == null;
+            }
+
+            if (obj == null)
+            {
+                return !Value.HasValue;
             }
 
             if (obj is string stringBoolean)
