@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<interface-response>
+
+  <test-number-parsing>
+    <decimal>1,123.23</decimal>
+    <int>1,123</int>
+    <empty></empty>
+    <empty-closed />
+  </test-number-parsing>
+
+</interface-response>

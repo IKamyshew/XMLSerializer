@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<interface-response>
+
+  <test-boolean-attribute-parsing
+    yes="Yes"
+    no="No"
+    one="1"
+    zero="0"
+    true="True"
+    false="False"
+    empty=""
+    null="null"
+    nullable-true="Yes">
+  </test-boolean-attribute-parsing>
+
+</interface-response>
