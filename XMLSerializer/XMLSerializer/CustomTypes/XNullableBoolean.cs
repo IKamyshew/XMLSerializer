@@ -11,6 +11,18 @@ namespace XMLSerializer.CustomTypes
     {
         private bool? Value { get; set; }
 
+        public bool HasValue {
+            get
+            {
+                return Value != null;
+            }
+        }
+
+        public XNullableBoolean(bool? value)
+        {
+            Value = value;
+        }
+
         public override bool Equals(object obj)
         {
             if (!Value.HasValue)

@@ -11,6 +11,11 @@ namespace XMLSerializer.CustomTypes
     {
         private bool Value { get; set; }
 
+        public XBoolean(bool value)
+        {
+           Value = value;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is string stringBoolean)
