@@ -19,6 +19,18 @@ namespace XMLSerializer.Responses
         [XmlElement(ElementName = "no")]
         public XBoolean No { get; set; }
 
+        [XmlElement(ElementName = "on")]
+        public XBoolean On { get; set; }
+
+        [XmlElement(ElementName = "off")]
+        public XBoolean Off { get; set; }
+
+        [XmlElement(ElementName = "enabled")]
+        public XBoolean Enabled { get; set; }
+
+        [XmlElement(ElementName = "disabled")]
+        public XBoolean Disabled { get; set; }
+
         [XmlElement(ElementName = "one")]
         public XBoolean One { get; set; }
 
@@ -36,9 +48,6 @@ namespace XMLSerializer.Responses
 
         [XmlElement(ElementName = "empty-closed")]
         public XNullableBoolean EmptyClosed { get; set; }
-
-        [XmlElement(ElementName = "null")]
-        public XNullableBoolean Null { get; set; }
 
         [XmlElement(ElementName = "nullable-true")]
         public XNullableBoolean NullableTrue { get; set; }

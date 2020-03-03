@@ -20,7 +20,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.Yes = BooleanHelper.DeserializeBoolean(value);
+                this.Yes = BooleanHelper.ConvertToBoolean(value, falseIfUnknown: false);
             }
         }
 
@@ -33,7 +33,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.No = BooleanHelper.DeserializeBoolean(value);
+                this.No = BooleanHelper.ConvertToBoolean(value, falseIfUnknown: false);
             }
         }
 
@@ -46,7 +46,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.One = BooleanHelper.DeserializeBoolean(value);
+                this.One = BooleanHelper.ConvertToBoolean(value, falseIfUnknown: false);
             }
         }
 
@@ -59,7 +59,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.Zero = BooleanHelper.DeserializeBoolean(value);
+                this.Zero = BooleanHelper.ConvertToBoolean(value, falseIfUnknown: false);
             }
         }
 
@@ -72,7 +72,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.True = BooleanHelper.DeserializeBoolean(value);
+                this.True = BooleanHelper.ConvertToBoolean(value, falseIfUnknown: false);
             }
         }
 
@@ -85,7 +85,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.False = BooleanHelper.DeserializeBoolean(value);
+                this.False = BooleanHelper.ConvertToBoolean(value, falseIfUnknown: false);
             }
         }
 
@@ -99,19 +99,6 @@ namespace XMLSerializer.Responses
             set
             {
                 this.Empty = BooleanHelper.DeserializeNullableBoolean(value);
-            }
-        }
-
-        [XmlAttribute(AttributeName = "null")]
-        public string NullAsString
-        {
-            get
-            {
-                return this.Null.ToString().ToLower();
-            }
-            set
-            {
-                this.Null = BooleanHelper.DeserializeNullableBoolean(value);
             }
         }
 
@@ -135,7 +122,6 @@ namespace XMLSerializer.Responses
         public bool True { get; set; }
         public bool False { get; set; }
         public bool? Empty { get; set; }
-        public bool? Null { get; set; }
         public bool? NullableTrue { get; set; }
     }
 }

@@ -34,9 +34,6 @@ namespace XMLSerializer.Responses
         [XmlAttribute(AttributeName = "empty")]
         public XNullableBoolean Empty { get; set; }
 
-        [XmlAttribute(AttributeName = "null")]
-        public XNullableBoolean Null { get; set; }
-
         [XmlAttribute(AttributeName = "nullable-true")]
         public XNullableBoolean NullableTrue { get; set; }
     }

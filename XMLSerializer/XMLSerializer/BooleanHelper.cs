@@ -7,7 +7,6 @@ namespace XMLSerializer
     {
         private static readonly string[] ValidTrueBool = new string[] { "yes", "1" };
         private static readonly string[] ValidFalseBool = new string[] { "no", "0" };
-        private static readonly string[] ValidNullBool = new string[] { "", "null" };
 
         public static bool DeserializeBoolean(string value)
         {
@@ -33,38 +32,57 @@ namespace XMLSerializer
             return result;
         }
 
-        public static bool? DeserializeNullableBoolean(string value)
+        public static Boolean ConvertToBoolean(String val, bool falseIfUnknown = true)
         {
-            bool? result;
-
-            value = value.ToLower();
-
-            bool parsedResult;
-            if (bool.TryParse(value, out parsedResult))
+            try
             {
-                result = parsedResult;
-            }
-            else
-            {
-                if (ValidTrueBool.Contains(value))
+                if (val == "1" ||
+                    val.Equals("on", StringComparison.CurrentCultureIgnoreCase) ||
+                    val.Equals("True", StringComparison.CurrentCultureIgnoreCase) ||
+                    val.Equals("Enabled", StringComparison.CurrentCultureIgnoreCase) ||
+                    val.Equals("Yes", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    result = true;
+                    return true;
                 }
-                else if (ValidFalseBool.Contains(value))
+                else if (val == "0" ||
+                         val.Equals("off", StringComparison.CurrentCultureIgnoreCase) ||
+                         val.Equals("False", StringComparison.CurrentCultureIgnoreCase) ||
+                         val.Equals("Disabled", StringComparison.CurrentCultureIgnoreCase) ||
+                         val.Equals("No", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    result = false;
+                    return false;
                 }
-                else if (ValidNullBool.Contains(value))
+
+                if (falseIfUnknown)
                 {
-                    result = null;
+                    return false;
                 }
                 else
                 {
-                    throw new ArgumentException($"Unknown bool value: {value}");
+                    throw new ArgumentException($"Unknown bool value: {val}");
                 }
             }
+            catch
+            {
+                if (falseIfUnknown)
+                {
+                    return false;
+                }
+                else
+                {
+                    throw new ArgumentException($"Unknown bool value: {val}");
+                }
+            }
+        }
 
-            return result;
+        public static bool? DeserializeNullableBoolean(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return null;
+            }
+
+            return (bool?) ConvertToBoolean(val: value, falseIfUnknown: false);
         }
     }
 }

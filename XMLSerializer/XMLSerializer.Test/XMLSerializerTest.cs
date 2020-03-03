@@ -114,13 +114,16 @@ namespace XMLSerializer.Test
 
             ((bool)result.Yes).Should().BeTrue();
             ((bool)result.No).Should().BeFalse();
+            ((bool)result.On).Should().BeTrue();
+            ((bool)result.Off).Should().BeFalse();
+            ((bool)result.Enabled).Should().BeTrue();
+            ((bool)result.Disabled).Should().BeFalse();
             ((bool)result.One).Should().BeTrue();
             ((bool)result.Zero).Should().BeFalse();
             ((bool)result.True).Should().BeTrue();
             ((bool)result.False).Should().BeFalse();
             ((bool?)result.Empty).Should().BeNull();
             ((bool?)result.EmptyClosed).Should().BeNull();
-            ((bool?)result.Null).Should().BeNull();
             ((bool?)result.NullableTrue).Should().BeTrue();
         }
 
@@ -135,7 +138,6 @@ namespace XMLSerializer.Test
             ((bool)result.True).Should().BeTrue();
             ((bool)result.False).Should().BeFalse();
             ((bool?)result.Empty).Should().BeNull();
-            ((bool?)result.Null).Should().BeNull();
             ((bool?)result.NullableTrue).Should().BeTrue();
         }
 
@@ -150,7 +152,6 @@ namespace XMLSerializer.Test
             result.True.Should().BeTrue();
             result.False.Should().BeFalse();
             result.Empty.Should().BeNull();
-            result.Null.Should().BeNull();
             result.NullableTrue.Should().BeTrue();
         }
         #endregion

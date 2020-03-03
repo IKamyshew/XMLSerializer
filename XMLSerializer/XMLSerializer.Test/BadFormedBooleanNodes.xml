@@ -5,13 +5,16 @@
   <test-boolean-parsing>
     <yes>Yes</yes>
     <no>No</no>
+    <on>On</on>
+    <off>Off</off>
+    <enabled>Enabled</enabled>
+    <disabled>Disabled</disabled>
     <one>1</one>
     <zero>0</zero>
     <true>True</true>
     <false>False</false>
     <empty></empty>
     <empty-closed />
-    <null>null</null>
     <nullable-true>Yes</nullable-true>
   </test-boolean-parsing>
 
