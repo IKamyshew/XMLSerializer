@@ -14,27 +14,27 @@ namespace XMLSerializer.Responses
     public class TestBooleanAttributeParsing
     {
         [XmlAttribute(AttributeName = "yes")]
-        public XBoolean Yes { get; set; }
+        public XBool Yes { get; set; }
 
         [XmlAttribute(AttributeName = "no")]
-        public XBoolean No { get; set; }
+        public XBool No { get; set; }
 
         [XmlAttribute(AttributeName = "one")]
-        public XBoolean One { get; set; }
+        public XBool One { get; set; }
 
         [XmlAttribute(AttributeName = "zero")]
-        public XBoolean Zero { get; set; }
+        public XBool Zero { get; set; }
 
         [XmlAttribute(AttributeName = "true")]
-        public XBoolean True { get; set; }
+        public XBool True { get; set; }
 
         [XmlAttribute(AttributeName = "false")]
-        public XBoolean False { get; set; }
+        public XBool False { get; set; }
 
         [XmlAttribute(AttributeName = "empty")]
-        public XNullableBoolean Empty { get; set; }
+        public XNullableBool Empty { get; set; }
 
         [XmlAttribute(AttributeName = "nullable-true")]
-        public XNullableBoolean NullableTrue { get; set; }
+        public XNullableBool NullableTrue { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 namespace XMLSerializer.CustomTypes
 {
     [DebuggerDisplay("{Value}")]
-    public struct XNullableBoolean : IXmlSerializable
+    public struct XNullableBool : IXmlSerializable
     {
         private bool? Value { get; set; }
 
@@ -18,7 +18,7 @@ namespace XMLSerializer.CustomTypes
             }
         }
 
-        public XNullableBoolean(bool? value)
+        public XNullableBool(bool? value)
         {
             Value = value;
         }
@@ -44,7 +44,7 @@ namespace XMLSerializer.CustomTypes
             {
                 return Value.Value == boolean;
             }
-            else if (obj is XNullableBoolean serializableBoolean)
+            else if (obj is XNullableBool serializableBoolean)
             {
                 return Value.Value == serializableBoolean.Value;
             }
@@ -76,27 +76,27 @@ namespace XMLSerializer.CustomTypes
             throw new NotImplementedException();
         }
 
-        public static bool operator ==(XNullableBoolean obj1, bool obj2)
+        public static bool operator ==(XNullableBool obj1, bool obj2)
         {
             return obj1.Value.Equals(obj2);
         }
 
-        public static bool operator !=(XNullableBoolean obj1, bool obj2)
+        public static bool operator !=(XNullableBool obj1, bool obj2)
         {
             return !obj1.Value.Equals(obj2);
         }
 
-        public static implicit operator XNullableBoolean(string value)
+        public static implicit operator XNullableBool(string value)
         {
-            return new XNullableBoolean() { Value = Convert.ToBoolean(value) };
+            return new XNullableBool() { Value = Convert.ToBoolean(value) };
         }
 
-        public static implicit operator XNullableBoolean(bool value)
+        public static implicit operator XNullableBool(bool value)
         {
-            return new XNullableBoolean() { Value = value };
+            return new XNullableBool() { Value = value };
         }
 
-        public static implicit operator bool?(XNullableBoolean b)
+        public static implicit operator bool?(XNullableBool b)
         {
             return b.Value;
         }

@@ -8,15 +8,15 @@ namespace XMLSerializer.Test
     public class XMLSerializerTest
     {
         #region init
-        private readonly XmlDocument BadFormedNumberNodesXML;
+        private readonly XmlDocument BadFormedDoubleNodesXML;
         private readonly XmlDocument BadFormedBooleanNodesXML;
         private readonly XmlDocument BadFormedBooleanAttributesXML;
         private readonly XmlDocument BadFormedArrayNodesXML;
 
         public XMLSerializerTest()
         {
-            BadFormedNumberNodesXML = new XmlDocument();
-            BadFormedNumberNodesXML.Load("BadFormedNumberNodes.xml");
+            BadFormedDoubleNodesXML = new XmlDocument();
+            BadFormedDoubleNodesXML.Load("BadFormedDoubleNodes.xml");
 
             BadFormedBooleanNodesXML = new XmlDocument();
             BadFormedBooleanNodesXML.Load("BadFormedBooleanNodes.xml");
@@ -34,22 +34,20 @@ namespace XMLSerializer.Test
         public void NumberNodes_Deserialized()
         {
             // arrange
-            var expectedNumbers = new TestNumberParsing
+            var expectedNumbers = new TestDoubleParsing
             {
-                Decimal = 1123.23M,
-                Int = 1123
+                Decimal = "1,123.01",
+                Empty = (double?)null
             };
 
             // act
-            var result = BadFormedNumberNodesXML.Deserialize<BadFormedNumberNodes>();
+            var result = BadFormedDoubleNodesXML.Deserialize<BadFormedDoubleNodes>();
 
             // assert
             result.Should().NotBeNull();
-            var numbers = result.TestNumberParsing;
+            var numbers = result.TestDoubleParsing;
             numbers.Decimal.Should().Be(expectedNumbers.Decimal);
-            numbers.Int.Should().Be(expectedNumbers.Int);
-            numbers.Empty.Should().BeNull();
-            numbers.EmptyClosed.Should().BeNull();
+            numbers.Empty.HasValue.Should().BeFalse();
         }
 
         [Fact]

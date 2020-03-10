@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="BadFormedNumberNodes.xml">
+    <None Update="BadFormedDoubleNodes.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="BadFormedArrayNodes.xml">

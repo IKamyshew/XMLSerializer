@@ -7,11 +7,11 @@ using System.Xml.Serialization;
 namespace XMLSerializer.CustomTypes
 {
     [DebuggerDisplay("{Value}")]
-    public struct XBoolean : IXmlSerializable
+    public struct XBool : IXmlSerializable
     {
         private bool Value { get; set; }
 
-        public XBoolean(bool value)
+        public XBool(bool value)
         {
            Value = value;
         }
@@ -27,7 +27,7 @@ namespace XMLSerializer.CustomTypes
             {
                 return Value == boolean;
             }
-            else if (obj is XBoolean serializableBoolean)
+            else if (obj is XBool serializableBoolean)
             {
                 return Value == serializableBoolean.Value;
             }
@@ -59,27 +59,27 @@ namespace XMLSerializer.CustomTypes
             throw new NotImplementedException();
         }
 
-        public static bool operator ==(XBoolean obj1, bool obj2)
+        public static bool operator ==(XBool obj1, bool obj2)
         {
             return obj1.Value.Equals(obj2);
         }
 
-        public static bool operator !=(XBoolean obj1, bool obj2)
+        public static bool operator !=(XBool obj1, bool obj2)
         {
             return !obj1.Value.Equals(obj2);
         }
 
-        public static implicit operator XBoolean(string value)
+        public static implicit operator XBool(string value)
         {
-            return new XBoolean() { Value = Convert.ToBoolean(value) };
+            return new XBool() { Value = Convert.ToBoolean(value) };
         }
 
-        public static implicit operator XBoolean(bool value)
+        public static implicit operator XBool(bool value)
         {
-            return new XBoolean() { Value = value };
+            return new XBool() { Value = value };
         }
 
-        public static implicit operator bool(XBoolean b)
+        public static implicit operator bool(XBool b)
         {
             return b.Value;
         }

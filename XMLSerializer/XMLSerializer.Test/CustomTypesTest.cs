@@ -11,8 +11,8 @@ namespace XMLSerializer.Test
         public void XBooleanUsable()
         {
             // arrange
-            XBoolean custTrueBool = new XBoolean(true);
-            XBoolean custFalseBool = new XBoolean(false);
+            XBool custTrueBool = new XBool(true);
+            XBool custFalseBool = new XBool(false);
 
             // act
             bool trueResult = custTrueBool;
@@ -31,9 +31,9 @@ namespace XMLSerializer.Test
         public void XNullableBooleanUsable()
         {
             // arrange
-            XNullableBoolean custTrueBool = new XNullableBoolean(true);
-            XNullableBoolean custFalseBool = new XNullableBoolean(false);
-            XNullableBoolean custNullBool = new XNullableBoolean(null);
+            XNullableBool custTrueBool = new XNullableBool(true);
+            XNullableBool custFalseBool = new XNullableBool(false);
+            XNullableBool custNullBool = new XNullableBool(null);
 
             // act
             bool? trueResult = custTrueBool;
@@ -54,6 +54,42 @@ namespace XMLSerializer.Test
             custFalseBool.Equals(null).Should().BeFalse();
             custNullBool.Equals(true).Should().BeFalse();
             custNullBool.Equals(null).Should().BeTrue();
+        }
+
+        [Fact]
+        public void XDoubleUsable()
+        {
+            // arrange
+            double expectedDThousand = 1000.01;
+            double expectedD2Dec = .05;
+
+            // act
+            XDouble dThousand = new XDouble("1,000.01");
+            XDouble d2Dec = new XDouble(".05");
+
+            // assert
+            dThousand.Should().Be(expectedDThousand);
+            d2Dec.Should().Be(expectedD2Dec);
+        }
+
+        [Fact]
+        public void XNullableDoubleUsable()
+        {
+            // arrange
+            double expectedDThousand = 1000.01;
+            double expectedD2Dec = .05;
+
+            // act
+            XNullableDouble dThousand = new XNullableDouble("1,000.01");
+            XNullableDouble d2Dec = new XNullableDouble(".05");
+            XNullableDouble dNullable = new XNullableDouble(null);
+            XNullableDouble dEmpty = new XNullableDouble("");
+
+            // assert
+            dThousand.Should().Be(expectedDThousand);
+            d2Dec.Should().Be(expectedD2Dec);
+            dNullable.HasValue.Should().BeFalse();
+            dEmpty.HasValue.Should().BeFalse();
         }
         #endregion
     }
