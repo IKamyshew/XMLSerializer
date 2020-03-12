@@ -8,6 +8,7 @@ namespace XMLSerializer.Test
     public class XMLSerializerTest
     {
         #region init
+        private readonly XmlDocument BadFormedNumberNodesXML;
         private readonly XmlDocument BadFormedDoubleNodesXML;
         private readonly XmlDocument BadFormedBooleanNodesXML;
         private readonly XmlDocument BadFormedBooleanAttributesXML;
@@ -15,6 +16,9 @@ namespace XMLSerializer.Test
 
         public XMLSerializerTest()
         {
+            BadFormedNumberNodesXML = new XmlDocument();
+            BadFormedNumberNodesXML.Load("BadFormedNumberNodes.xml");
+
             BadFormedDoubleNodesXML = new XmlDocument();
             BadFormedDoubleNodesXML.Load("BadFormedDoubleNodes.xml");
 
@@ -32,6 +36,26 @@ namespace XMLSerializer.Test
         #region tests
         [Fact]
         public void NumberNodes_Deserialized()
+        {
+            // arrange
+            var expectedNumbers = new TestNumberParsing
+            {
+                Valid = 123456
+            };
+
+            // act
+            var result = BadFormedNumberNodesXML.Deserialize<BadFormedNumberNodes>();
+
+            // assert
+            result.Should().NotBeNull();
+            var numbers = result.TestNumberParsing;
+            numbers.Valid.Should().Be(expectedNumbers.Valid);
+            numbers.Empty.HasValue.Should().BeFalse();
+            numbers.EmptyClosed.HasValue.Should().BeFalse();
+        }
+
+        [Fact]
+        public void DoubleNodes_Deserialized()
         {
             // arrange
             var expectedNumbers = new TestDoubleParsing

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<interface-response>
+
+  <test-number-parsing>
+    <valid>123456</valid>
+    <empty-closed />
+    <empty></empty>
+  </test-number-parsing>
+
+</interface-response>

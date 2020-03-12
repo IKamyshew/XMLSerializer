@@ -22,6 +22,9 @@
     <None Update="BadFormedDoubleNodes.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="BadFormedNumberNodes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="BadFormedArrayNodes.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

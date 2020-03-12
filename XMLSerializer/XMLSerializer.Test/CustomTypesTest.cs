@@ -91,6 +91,25 @@ namespace XMLSerializer.Test
             dNullable.HasValue.Should().BeFalse();
             dEmpty.HasValue.Should().BeFalse();
         }
+
+        [Fact]
+        public void XNullableIntUsable()
+        {
+            // arrange
+            int validExpected = 123456;
+
+            // act
+            var emptyInt = new XNullableInt("");
+            var nullInt = new XNullableInt((int?)null);
+            var nullStringInt = new XNullableInt((string)null);
+            var validInt = new XNullableInt("123456");
+
+            // assert
+            emptyInt.HasValue.Should().BeFalse();
+            nullInt.HasValue.Should().BeFalse();
+            nullStringInt.HasValue.Should().BeFalse();
+            validInt.Should().Be(validExpected);
+        }
         #endregion
     }
 }
