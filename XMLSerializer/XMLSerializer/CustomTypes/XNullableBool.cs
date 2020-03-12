@@ -68,7 +68,7 @@ namespace XMLSerializer.CustomTypes
         {
             string rawValue = reader.ReadElementContentAsString();
 
-            Value = BooleanHelper.DeserializeNullableBoolean(rawValue);
+            Value = CustomTypeHelper.DeserializeNullableBoolean(rawValue);
         }
 
         public void WriteXml(XmlWriter writer)

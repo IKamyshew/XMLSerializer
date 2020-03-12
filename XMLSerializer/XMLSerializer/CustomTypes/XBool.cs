@@ -51,7 +51,7 @@ namespace XMLSerializer.CustomTypes
         {
             string rawValue = reader.ReadElementContentAsString();
 
-            Value = BooleanHelper.ConvertToBoolean(rawValue, falseIfUnknown: false);
+            Value = CustomTypeHelper.ConvertToBoolean(rawValue, falseIfUnknown: false);
         }
 
         public void WriteXml(XmlWriter writer)

@@ -26,7 +26,7 @@ namespace XMLSerializer.CustomTypes
 
         public XNullableDouble(string value)
         {
-            Value = DoubleHelper.DeserializeNullableDouble(value);
+            Value = CustomTypeHelper.DeserializeNullableDouble(value);
         }
 
         public override bool Equals(object obj)
@@ -43,7 +43,7 @@ namespace XMLSerializer.CustomTypes
 
             if (obj is string)
             {
-                double number = DoubleHelper.DeserializeDouble((string)obj);
+                double number = CustomTypeHelper.DeserializeDouble((string)obj);
 
                 return Value == number;
             }
@@ -80,7 +80,7 @@ namespace XMLSerializer.CustomTypes
         {
             string rawValue = reader.ReadElementContentAsString();
 
-            Value = DoubleHelper.DeserializeNullableDouble(rawValue);
+            Value = CustomTypeHelper.DeserializeNullableDouble(rawValue);
         }
 
         public void WriteXml(XmlWriter writer)
@@ -100,7 +100,7 @@ namespace XMLSerializer.CustomTypes
 
         public static implicit operator XNullableDouble(string value)
         {
-            return new XNullableDouble() { Value = DoubleHelper.DeserializeNullableDouble(value) };
+            return new XNullableDouble() { Value = CustomTypeHelper.DeserializeNullableDouble(value) };
         }
 
         public static implicit operator XNullableDouble(double? value)

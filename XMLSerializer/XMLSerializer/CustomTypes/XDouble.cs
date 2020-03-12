@@ -18,14 +18,14 @@ namespace XMLSerializer.CustomTypes
 
         public XDouble(string value)
         {
-            Value = DoubleHelper.DeserializeDouble(value);
+            Value = CustomTypeHelper.DeserializeDouble(value);
         }
 
         public override bool Equals(object obj)
         {
             if (obj is string)
             {
-                double number = DoubleHelper.DeserializeDouble((string)obj);
+                double number = CustomTypeHelper.DeserializeDouble((string)obj);
 
                 return Value == number;
             }
@@ -62,7 +62,7 @@ namespace XMLSerializer.CustomTypes
         {
             string rawValue = reader.ReadElementContentAsString();
 
-            Value = DoubleHelper.DeserializeDouble(rawValue);
+            Value = CustomTypeHelper.DeserializeDouble(rawValue);
         }
 
         public void WriteXml(XmlWriter writer)
@@ -82,7 +82,7 @@ namespace XMLSerializer.CustomTypes
 
         public static implicit operator XDouble(string value)
         {
-            return new XDouble() { Value = DoubleHelper.DeserializeDouble(value) };
+            return new XDouble() { Value = CustomTypeHelper.DeserializeDouble(value) };
         }
 
         public static implicit operator XDouble(double value)

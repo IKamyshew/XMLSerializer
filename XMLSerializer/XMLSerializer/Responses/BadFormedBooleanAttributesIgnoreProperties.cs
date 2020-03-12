@@ -20,7 +20,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.Yes = BooleanHelper.ConvertToBoolean(value, falseIfUnknown: false);
+                this.Yes = CustomTypeHelper.ConvertToBoolean(value, falseIfUnknown: false);
             }
         }
 
@@ -33,7 +33,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.No = BooleanHelper.ConvertToBoolean(value, falseIfUnknown: false);
+                this.No = CustomTypeHelper.ConvertToBoolean(value, falseIfUnknown: false);
             }
         }
 
@@ -46,7 +46,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.One = BooleanHelper.ConvertToBoolean(value, falseIfUnknown: false);
+                this.One = CustomTypeHelper.ConvertToBoolean(value, falseIfUnknown: false);
             }
         }
 
@@ -59,7 +59,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.Zero = BooleanHelper.ConvertToBoolean(value, falseIfUnknown: false);
+                this.Zero = CustomTypeHelper.ConvertToBoolean(value, falseIfUnknown: false);
             }
         }
 
@@ -72,7 +72,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.True = BooleanHelper.ConvertToBoolean(value, falseIfUnknown: false);
+                this.True = CustomTypeHelper.ConvertToBoolean(value, falseIfUnknown: false);
             }
         }
 
@@ -85,7 +85,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.False = BooleanHelper.ConvertToBoolean(value, falseIfUnknown: false);
+                this.False = CustomTypeHelper.ConvertToBoolean(value, falseIfUnknown: false);
             }
         }
 
@@ -98,7 +98,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.Empty = BooleanHelper.DeserializeNullableBoolean(value);
+                this.Empty = CustomTypeHelper.DeserializeNullableBoolean(value);
             }
         }
 
@@ -111,7 +111,7 @@ namespace XMLSerializer.Responses
             }
             set
             {
-                this.NullableTrue = BooleanHelper.DeserializeNullableBoolean(value);
+                this.NullableTrue = CustomTypeHelper.DeserializeNullableBoolean(value);
             }
         }
 

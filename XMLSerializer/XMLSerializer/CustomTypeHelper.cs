@@ -3,8 +3,9 @@ using System.Linq;
 
 namespace XMLSerializer
 {
-    public static class BooleanHelper
+    public static class CustomTypeHelper
     {
+        #region bool
         private static readonly string[] ValidTrueBool = new string[] { "yes", "1" };
         private static readonly string[] ValidFalseBool = new string[] { "no", "0" };
 
@@ -84,5 +85,55 @@ namespace XMLSerializer
 
             return (bool?) ConvertToBoolean(val: value, falseIfUnknown: false);
         }
+        #endregion
+
+        #region double
+        public static double DeserializeDouble(string value)
+        {
+            string thousandDelimeter = ",";
+
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"Unable to cast null or empty string to double.");
+            }
+
+            value = value.ToLower();
+
+            double result;
+            if (!double.TryParse(value, out result))
+            {
+                value = value.Replace(thousandDelimeter, string.Empty);
+
+                if (!double.TryParse(value, out result))
+                {
+                    throw new ArgumentException($"Unknown double value: {value}");
+                }
+            }
+
+            return result;
+        }
+
+        public static double? DeserializeNullableDouble(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return null;
+            }
+
+            return DeserializeDouble(value);
+        }
+        #endregion
+
+        #region int
+        public static int? DeserializeNullableInt(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return null;
+            }
+
+            return int.Parse(value);
+        }
+        #endregion
     }
 }
