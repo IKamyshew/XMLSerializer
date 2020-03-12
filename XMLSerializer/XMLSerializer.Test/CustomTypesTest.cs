@@ -96,19 +96,20 @@ namespace XMLSerializer.Test
         public void XNullableIntUsable()
         {
             // arrange
-            int validExpected = 123456;
 
             // act
             var emptyInt = new XNullableInt("");
             var nullInt = new XNullableInt((int?)null);
             var nullStringInt = new XNullableInt((string)null);
-            var validInt = new XNullableInt("123456");
+            var validMaxInt = new XNullableInt(int.MaxValue.ToString());
+            var validMinInt = new XNullableInt(int.MinValue.ToString());
 
             // assert
             emptyInt.HasValue.Should().BeFalse();
             nullInt.HasValue.Should().BeFalse();
             nullStringInt.HasValue.Should().BeFalse();
-            validInt.Should().Be(validExpected);
+            validMaxInt.Should().Be(int.MaxValue);
+            validMinInt.Should().Be(int.MinValue);
         }
         #endregion
     }
