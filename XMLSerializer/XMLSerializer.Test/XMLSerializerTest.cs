@@ -10,6 +10,7 @@ namespace XMLSerializer.Test
         #region init
         private readonly XmlDocument BadFormedNumberNodesXML;
         private readonly XmlDocument BadFormedDoubleNodesXML;
+        private readonly XmlDocument BadFormedDecimalNodesXML;
         private readonly XmlDocument BadFormedBooleanNodesXML;
         private readonly XmlDocument BadFormedBooleanAttributesXML;
         private readonly XmlDocument BadFormedArrayNodesXML;
@@ -21,6 +22,9 @@ namespace XMLSerializer.Test
 
             BadFormedDoubleNodesXML = new XmlDocument();
             BadFormedDoubleNodesXML.Load("BadFormedDoubleNodes.xml");
+
+            BadFormedDecimalNodesXML = new XmlDocument();
+            BadFormedDecimalNodesXML.Load("BadFormedDecimalNodes.xml");
 
             BadFormedBooleanNodesXML = new XmlDocument();
             BadFormedBooleanNodesXML.Load("BadFormedBooleanNodes.xml");
@@ -61,6 +65,7 @@ namespace XMLSerializer.Test
             var expectedNumbers = new TestDoubleParsing
             {
                 Decimal = "1,123.01",
+                RealDecimal = 24.95,
                 Empty = (double?)null
             };
 
@@ -71,6 +76,31 @@ namespace XMLSerializer.Test
             result.Should().NotBeNull();
             var numbers = result.TestDoubleParsing;
             numbers.Decimal.Should().Be(expectedNumbers.Decimal);
+            numbers.RealDecimal.Should().Be(expectedNumbers.RealDecimal);
+            numbers.Empty.HasValue.Should().BeFalse();
+        }
+
+        [Fact]
+        public void DecimalNodes_Deserialized()
+        {
+            // arrange
+            var expectedNumbers = new TestDecimalParsing
+            {
+                Decimal = "0.9999999999999999999999999999",
+                DecimalThousand = "1,123.01",
+                RealDecimal = (decimal?)null,
+                Empty = (decimal?)null
+            };
+
+            // act
+            var result = BadFormedDecimalNodesXML.Deserialize<BadFormedDecimalNodes>();
+
+            // assert
+            result.Should().NotBeNull();
+            var numbers = result.TestDecimalParsing;
+            numbers.Decimal.Should().Be(expectedNumbers.Decimal);
+            numbers.DecimalThousand.Should().Be(expectedNumbers.DecimalThousand);
+            numbers.RealDecimal.Should().Be(expectedNumbers.RealDecimal);
             numbers.Empty.HasValue.Should().BeFalse();
         }
 

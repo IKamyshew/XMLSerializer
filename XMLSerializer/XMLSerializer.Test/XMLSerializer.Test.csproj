@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="BadFormedDecimalNodes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="BadFormedDoubleNodes.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

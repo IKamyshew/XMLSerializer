@@ -5,6 +5,7 @@
   <test-number-parsing>
     <valid>123456</valid>
     <empty-closed />
+    <empty-closed-int />
     <empty></empty>
   </test-number-parsing>
 

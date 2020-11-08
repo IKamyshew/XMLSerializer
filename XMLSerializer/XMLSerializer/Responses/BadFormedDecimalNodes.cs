@@ -4,22 +4,25 @@ using XMLSerializer.CustomTypes;
 namespace XMLSerializer.Responses
 {
     [XmlRoot(ElementName = "interface-response")]
-    public class BadFormedDoubleNodes
+    public class BadFormedDecimalNodes
     {
         [XmlElement(ElementName = "test-decimal-parsing")]
-        public TestDoubleParsing TestDoubleParsing { get; set; }
+        public TestDecimalParsing TestDecimalParsing { get; set; }
     }
 
     [XmlRoot(ElementName = "test-decimal-parsing")]
-    public class TestDoubleParsing
+    public class TestDecimalParsing
     {
         [XmlElement(ElementName = "decimal")]
-        public XDouble Decimal { get; set; }
+        public XDecimal Decimal { get; set; }
+
+        [XmlElement(ElementName = "decimal-thousand")]
+        public XDecimal DecimalThousand { get; set; }
 
         [XmlElement(ElementName = "real-decimal")]
-        public double? RealDecimal { get; set; }
+        public XNullableDecimal RealDecimal { get; set; }
 
         [XmlElement(ElementName = "empty")]
-        public XNullableDouble Empty { get; set; }
+        public XNullableDecimal Empty { get; set; }
     }
 }

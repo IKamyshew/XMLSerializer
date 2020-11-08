@@ -3,7 +3,8 @@
 <interface-response>
 
   <test-decimal-parsing>
-    <decimal>1,123.01</decimal>
+    <decimal-thousand>1,123.01</decimal-thousand>
+    <decimal>0.9999999999999999999999999999</decimal>
     <real-decimal />
     <empty></empty>
   </test-decimal-parsing>

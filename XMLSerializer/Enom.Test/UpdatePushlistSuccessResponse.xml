@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<interface-response>
+  <Command>UPDATEPUSHLIST</Command>
+  <Language>eng</Language>
+  <ErrCount>3</ErrCount>
+  <ResponseCount>0</ResponseCount>
+  
+  <LegacyAPIResponse>
+    <UPDATEPUSHLIST>
+      <PUSH-DOMAIN>
+        <DomainName>0-cavvvrb.eu</DomainName>
+        <DomainListWrongFormat>Valid</DomainListWrongFormat>
+        <DomainNameNotInYourAccount>Yes</DomainNameNotInYourAccount>
+        <DomainNameID>349865286</DomainNameID>
+        <SuccessfulPush>Yes</SuccessfulPush>
+        <Status>Ok to push</Status>
+      </PUSH-DOMAIN>
+    </UPDATEPUSHLIST>
+    <Command>UPDATEPUSHLIST</Command>
+    <ErrCount>0</ErrCount>
+    <ResponseCount>0</ResponseCount>
+  </LegacyAPIResponse>
+
+  <UPDATEPUSHLIST>
+    <PUSH-DOMAIN>
+      <DomainName>0-cavvvrb.eu</DomainName>
+      <DomainListWrongFormat>Valid</DomainListWrongFormat>
+      <DomainNameNotInYourAccount>Yes</DomainNameNotInYourAccount>
+      <DomainNameID>349865286</DomainNameID>
+      <SuccessfulPush>Yes</SuccessfulPush>
+      <Status>Ok to push</Status>
+    </PUSH-DOMAIN>
+    <PUSH-DOMAIN>
+      <DomainName>DomainName</DomainName>
+      <SuccessfulPush>SuccessfulPush</SuccessfulPush>
+      <Reason>Reason</Reason>
+    </PUSH-DOMAIN>
+    <PUSH-DOMAIN>
+      <DomainName>No SuccessfulPush and Reason tags</DomainName>
+    </PUSH-DOMAIN>
+    <PUSH-DOMAIN>
+    </PUSH-DOMAIN>
+    <PUSH-DOMAIN>
+      <DomainName></DomainName>
+      <SuccessfulPush></SuccessfulPush>
+      <Reason></Reason>
+    </PUSH-DOMAIN>
+  </UPDATEPUSHLIST>
+  <ErrCount>0</ErrCount>
+  
+</interface-response>

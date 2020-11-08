@@ -124,6 +124,43 @@ namespace XMLSerializer
         }
         #endregion
 
+        #region decimal
+        public static decimal DeserializeDecimal(string value)
+        {
+            string thousandDelimeter = ",";
+
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"Unable to cast null or empty string to decimal.");
+            }
+
+            value = value.ToLower();
+
+            decimal result;
+            if (!decimal.TryParse(value, out result))
+            {
+                value = value.Replace(thousandDelimeter, string.Empty);
+
+                if (!decimal.TryParse(value, out result))
+                {
+                    throw new ArgumentException($"Unknown decimal value: {value}");
+                }
+            }
+
+            return result;
+        }
+
+        public static decimal? DeserializeNullableDecimal(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return null;
+            }
+
+            return DeserializeDecimal(value);
+        }
+        #endregion
+
         #region int
         public static int? DeserializeNullableInt(string value)
         {

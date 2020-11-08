@@ -13,6 +13,9 @@ namespace XMLSerializer.Responses
     [XmlRoot(ElementName = "test-number-parsing")]
     public class TestNumberParsing
     {
+        [XmlElement(ElementName = "empty-closed-int")]
+        public int? EmptyClosedInt { get; set; }
+
         [XmlElement(ElementName = "empty-closed")]
         public XNullableInt EmptyClosed { get; set; }
 
